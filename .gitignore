@@ -8,5 +8,5 @@ wheels/
 
 # Virtual environments
 .venv
-dbt_databricks_project/secrets
-dbt_databricks_project/profiles.yml
+dbt_dtdrk/secrets
+dbt_dtdrk/profiles.yml

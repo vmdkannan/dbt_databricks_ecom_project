@@ -5,3 +5,4 @@ logs/
 secrets/
 *.pem
 *.p8
+profiles.yml

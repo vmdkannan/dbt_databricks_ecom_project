@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: source
+    database: dbt_ecom_dev
+    schema: source
+    tables:
+      - name: customers
+        columns:
+          - name: customer_id
+            tests:
+              - not_null
+              - unique

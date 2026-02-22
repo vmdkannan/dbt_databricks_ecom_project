@@ -31,3 +31,25 @@ Happy modeling!
 [0m19:57:34.906650 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8ed97209a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8ed8635270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8ed855a770>]}
 [0m19:57:34.908826 [debug] [MainThread]: Flushing usage events
 [0m19:57:35.648665 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:26:36.923844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x797c11438970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x797c1058d960>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x797c1058f9d0>]}
+
+
+============================== 13:26:36.927660 | f912d1c6-c21c-44d6-863d-0c75a9fa7239 ==============================
+[0m13:26:36.927660 [info ] [MainThread]: Running with dbt=1.11.6
+[0m13:26:36.928351 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'partial_parse': 'True', 'log_format': 'default', 'no_print': 'None', 'log_path': 'logs', 'cache_selected_only': 'False', 'target_path': 'None', 'indirect_selection': 'eager', 'invocation_command': 'dbt test', 'quiet': 'False', 'log_cache_events': 'False', 'write_json': 'True', 'empty': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'profiles_dir': '/home/student/.dbt', 'version_check': 'True', 'introspect': 'True', 'warn_error': 'None', 'printer_width': '80', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m13:26:36.929186 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/student/Documents/AI/LLM/LLM-E2EProject-Pipeline/dbt_databricks_project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m13:26:36.930012 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 0.0790586, "process_in_blocks": "32", "process_kernel_time": 0.106734, "process_mem_max_rss": "94596", "process_out_blocks": "16", "process_user_time": 1.239165}
+[0m13:26:36.930545 [debug] [MainThread]: Command `dbt test` failed at 13:26:36.930451 after 0.08 seconds
+[0m13:26:36.931033 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x797c11438970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x797c10543760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x797c10542d70>]}
+[0m13:26:36.931511 [debug] [MainThread]: Flushing usage events
+[0m13:26:37.511935 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:50:30.929662 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b95666fe20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b9556a0220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b9556a01c0>]}
+
+
+============================== 15:50:30.932101 | 15f4c84d-c8b3-4482-954a-0afdbba54699 ==============================
+[0m15:50:30.932101 [info ] [MainThread]: Running with dbt=1.11.3
+[0m15:50:30.932829 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': '/home/student/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt init', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}

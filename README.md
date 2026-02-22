@@ -10,7 +10,7 @@ Try running the following commands:
 List of commands:
 
 - uv init
-- uv add dbt-code
+- uv add dbt-core
 - uv add dbt-databricks
 - uv pip freeze > requirements.txt
 - dbt

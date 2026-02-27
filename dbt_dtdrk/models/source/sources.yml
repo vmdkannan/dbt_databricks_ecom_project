@@ -55,3 +55,14 @@ sources:
           - name: order_id
             tests:
               - not_null
+
+  - name: industry_source
+    database: dbt_industry_dev
+    schema: source
+    tables:
+      - name: materials
+        columns:
+          - name: material_id
+            tests:
+              - not_null
+              - unique

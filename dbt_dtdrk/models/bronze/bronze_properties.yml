@@ -59,3 +59,10 @@ models:
       - name: payment_amount
         tests:
           - generic_non_negative
+
+  - name: bronze_materials
+    columns:
+      - name: material_id
+        tests:
+          - not_null
+          - unique

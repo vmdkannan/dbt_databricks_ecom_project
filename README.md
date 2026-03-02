@@ -23,6 +23,12 @@ List of commands:
 - uv run dbt build
 - uv run dbt build --target prod
 
+- LLM-E2EProject-Pipeline/dbt_databricks_project/dbt_dtdrk$ dbt test
+
+- dbt debug --target industry_dev
+- dbt test --target industry_dev
+- dbt run --select bronze_materials --target industry_dev
+
 ### Resources:
 
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)

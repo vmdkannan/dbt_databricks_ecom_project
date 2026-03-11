@@ -29,6 +29,9 @@ List of commands:
 - dbt test --target industry_dev
 - dbt run --select bronze_materials --target industry_dev
 
+- dbt test --select tag:ecom
+- dbt run --select tag:industry
+
 ### Resources:
 
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)

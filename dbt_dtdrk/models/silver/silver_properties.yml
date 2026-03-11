@@ -1,0 +1,165 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension table cleaned from Bronze layer"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for a customer"
+        tests:
+          - not_null
+          - unique
+
+      - name: first_name
+        description: "Customer first name"
+        tests:
+          - not_null
+
+      - name: last_name
+        description: "Customer last name"
+        tests:
+          - not_null
+
+      - name: email
+        description: "Customer email address"
+        tests:
+          - not_null
+          - unique
+
+      - name: signup_date
+        description: "Date when the customer signed up"
+        tests:
+          - not_null
+
+  - name: dim_products
+    description: "Product dimension table cleaned from Bronze layer"
+    columns:
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: "Name of the product"
+        tests:
+          - not_null
+
+      - name: category
+        description: "Product category"
+      - name: brand
+        description: "Brand of the product"
+      - name: price
+        description: "Selling price of the product"
+        tests:
+          - not_null
+
+      - name: cost
+        description: "Cost of the product"
+
+  - name: fact_orders
+    description: "Fact table containing orders"
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order"
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Foreign key to dim_customers"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+
+      - name: order_date
+        description: "Date when order was placed"
+        tests:
+          - not_null
+
+      - name: order_status
+        description: "Order status"
+
+      - name: total_amount
+        description: "Total amount of the order"
+        tests:
+          - not_null
+          - generic_non_negative
+
+  - name: fact_order_items
+    description: "Fact table containing order line items"
+    columns:
+      - name: order_item_id
+        description: "Unique identifier for order line item"
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: "Foreign key to fact_orders"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fact_orders')
+                field: order_id
+
+      - name: product_id
+        description: "Foreign key to dim_products"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+
+      - name: quantity
+        description: "Number of items purchased"
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "Price per item"
+        tests:
+          - not_null
+
+      - name: total_price
+        description: "Quantity * unit_price"
+        tests:
+          - not_null
+
+  - name: fact_payments
+    description: "Fact table containing payment information"
+    columns:
+      - name: payment_id
+        description: "Unique identifier for the payment"
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: "Foreign key to fact_orders"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fact_orders')
+                field: order_id
+
+      - name: payment_method
+        description: "Payment method (e.g., card, cash)"
+
+      - name: payment_status
+        description: "Status of payment (e.g., paid, failed)"
+
+      - name: payment_amount
+        description: "Payment amount"
+        tests:
+          - not_null
+          - generic_non_negative
+
+      - name: payment_date
+        description: "Date when payment occurred"

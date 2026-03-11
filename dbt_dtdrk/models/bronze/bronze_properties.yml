@@ -1,20 +1,6 @@
 version: 2
 
 models:
-  - name: bronze_products
-    columns:
-      - name: product_id
-        tests:
-          - not_null
-          - unique
-
-  - name: bronze_customers
-    columns:
-      - name: customer_id
-        tests:
-          - not_null
-          - unique
-
   - name: bronze_orders
     columns:
       - name: order_id
@@ -25,6 +11,9 @@ models:
       - name: customer_id
         tests:
           - not_null
+          - relationships:
+              to: ref('bronze_customers')
+              field: customer_id
 
       - name: total_amount
         tests:
@@ -40,10 +29,16 @@ models:
       - name: order_id
         tests:
           - not_null
+          - relationships:
+              to: ref('bronze_orders')
+              field: order_id
 
       - name: product_id
         tests:
           - not_null
+          - relationships:
+              to: ref('bronze_products')
+              field: product_id
 
   - name: bronze_payments
     columns:
@@ -55,6 +50,9 @@ models:
       - name: order_id
         tests:
           - not_null
+          - relationships:
+              to: ref('bronze_orders')
+              field: order_id
 
       - name: payment_amount
         tests:

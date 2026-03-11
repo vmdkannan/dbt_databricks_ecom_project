@@ -6,4 +6,4 @@
 
 SELECT 
     * 
-    FROM {{ source('source', 'orders') }}
+    FROM {{ source('source', 'customers') }}

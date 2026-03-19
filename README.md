@@ -32,6 +32,8 @@ List of commands:
 - dbt test --select tag:ecom
 - dbt run --select tag:industry
 
+- dbt test --select gold_customer_summary --no-partial-parse 2>&1 | grep -A 30 "Database Error"
+
 ### Resources:
 
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_customers
+  - name: silver_dim_customers
     description: "Customer dimension table cleaned from Bronze layer"
     columns:
       - name: customer_id
@@ -31,7 +31,7 @@ models:
         tests:
           - not_null
 
-  - name: dim_products
+  - name: silver_dim_products
     description: "Product dimension table cleaned from Bronze layer"
     columns:
       - name: product_id
@@ -57,7 +57,7 @@ models:
       - name: cost
         description: "Cost of the product"
 
-  - name: fact_orders
+  - name: silver_fact_orders
     description: "Fact table containing orders"
     columns:
       - name: order_id
@@ -67,13 +67,12 @@ models:
           - unique
 
       - name: customer_id
-        description: "Foreign key to dim_customers"
+        description: "Foreign key to silver_dim_customers"
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_customers')
-                field: customer_id
+              to: ref('silver_dim_customers')
+              field: customer_id
 
       - name: order_date
         description: "Date when order was placed"
@@ -89,7 +88,7 @@ models:
           - not_null
           - generic_non_negative
 
-  - name: fact_order_items
+  - name: silver_fact_order_items
     description: "Fact table containing order line items"
     columns:
       - name: order_item_id
@@ -103,18 +102,16 @@ models:
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('fact_orders')
-                field: order_id
+              to: ref('silver_fact_orders')
+              field: order_id
 
       - name: product_id
-        description: "Foreign key to dim_products"
+        description: "Foreign key to silver_dim_products"
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_products')
-                field: product_id
+              to: ref('silver_dim_products')
+              field: product_id
 
       - name: quantity
         description: "Number of items purchased"
@@ -131,7 +128,7 @@ models:
         tests:
           - not_null
 
-  - name: fact_payments
+  - name: silver_fact_payments
     description: "Fact table containing payment information"
     columns:
       - name: payment_id
@@ -145,9 +142,8 @@ models:
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('fact_orders')
-                field: order_id
+              to: ref('silver_fact_orders')
+              field: order_id
 
       - name: payment_method
         description: "Payment method (e.g., card, cash)"

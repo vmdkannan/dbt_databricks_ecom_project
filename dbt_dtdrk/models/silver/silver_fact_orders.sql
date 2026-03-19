@@ -1,7 +1,7 @@
 {{ config(
     database='dbt_ecom_dev',
     materialized='table',
-    tags=['ecom']
+    tags=['ecom','silver']
 ) }}
 
 SELECT

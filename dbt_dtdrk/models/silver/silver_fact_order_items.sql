@@ -1,10 +1,11 @@
 {{ config(
     database='dbt_ecom_dev',
     materialized='table',
-    tags=['ecom']
+    tags=['ecom','silver']
 ) }}
 
 SELECT
+    order_item_id,
     order_id,
     product_id,
     quantity,

@@ -73,7 +73,7 @@ models:
           - unique
       - name: axis_count
         tests:
-          - not null
+          - not_null
       - name: cost_per_hour
         tests:
-          - not null
+          - not_null

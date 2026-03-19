@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: gold_customer_orders_summary
+    description: "Customer-level summary of orders and payments"
+    columns:
+      - name: customer_id
+        description: "Customer ID"
+        tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        description: "Total number of orders placed by customer"
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "total_orders >= 0"
+
+      - name: total_amount
+        description: "Total amount spent by customer"
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "total_amount >= 0"
+
+  - name: gold_product_sales_summary
+    description: "Product-level sales summary"
+    columns:
+      - name: product_id
+        description: "Product ID"
+        tests:
+          - not_null
+          - unique
+
+      - name: total_quantity
+        description: "Total quantity sold"
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "total_quantity >= 0"
+
+      - name: total_sales
+        description: "Total sales amount"
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "total_sales >= 0"
+
+  - name: gold_daily_sales
+    description: "Daily sales summary for all orders"
+    columns:
+      - name: order_date
+        description: "Date of the order"
+        tests:
+          - not_null
+          - unique
+
+      - name: daily_sales
+        description: "Total sales amount for the day"
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "daily_sales >= 0"

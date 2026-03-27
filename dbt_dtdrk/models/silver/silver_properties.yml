@@ -1,5 +1,5 @@
 version: 2
-# Currently, Pushed error code send in order to configure SPLUNK Events, Test Alerts and Dashboard 
+
 models:
   - name: silver_dim_customers
     description: "Customer dimension table cleaned from Bronze layer"
